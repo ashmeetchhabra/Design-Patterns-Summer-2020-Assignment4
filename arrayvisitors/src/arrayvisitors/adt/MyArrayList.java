@@ -1,5 +1,5 @@
 package arrayvisitors.adt;
 
-public class MyArrayList {
+public class MyArrayList implements MyArrayListI {
 
 }

@@ -48,8 +48,8 @@
         <java jar="${BUILD}/jar/arrayvisitors.jar"  fork="true">
 	<arg value="${input1}"/> <!-- input1 file -->
 	<arg value="${input2}"/> <!-- input2 file -->
-    <arg value="${commonintsout}"/> <!-- output2 file -->
-    <arg value="${missingintsout}"/> <!-- output3 file -->
+    <arg value="${commonintsout}"/> <!-- output1 file -->
+    <arg value="${missingintsout}"/> <!-- output2 file -->
     <arg value="${debug}"/> <!-- debug file -->
         </java>	
     </target>

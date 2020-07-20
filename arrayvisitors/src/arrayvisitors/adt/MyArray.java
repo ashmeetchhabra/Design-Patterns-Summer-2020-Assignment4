@@ -1,32 +1,36 @@
 package arrayvisitors.adt;
 
+import arrayvisitors.util.DynamicArray;
 import arrayvisitors.visitors.Visitor;
 
 public class MyArray implements MyArrayI {
-	
+	DynamicArray array = new DynamicArray();
 
 	@Override
-	public int getInts(int index) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getInt(int index) {
+		return array.getElement(index);
 	}
 
 	@Override
-	public void addInts(int value) {
-		// TODO Auto-generated method stub
-		
+	public void addInts(int value) {	
+		array.addElement(value);
 	}
 
 	@Override
 	public int length() {
-		// TODO Auto-generated method stub
-		return 0;
+		return array.size();
 	}
 
 	@Override
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
-		
+
 	}
+
+	@Override
+	public void displayElements() {
+		array.printElements();
+	}
+	
 
 }

@@ -1,13 +1,8 @@
 package arrayvisitors.driver;
 
-import arrayvisitors.adt.MyArray;
-import arrayvisitors.adt.MyArrayI;
 import arrayvisitors.util.FileProcessor;
 import arrayvisitors.util.MyLogger;
-import arrayvisitors.util.MyLogger.DebugLevel;
 import arrayvisitors.visitors.PopulateMyArrayVisitor;
-import arrayvisitors.visitors.Visitor;
-
 
 public class Driver {
 
@@ -22,27 +17,18 @@ public class Driver {
 					REQUIRED_NUMBER_OF_CMDLINE_ARGS);
 			System.exit(0);
 		}
-		
+
 		try {
 			MyLogger.setDebugValue(Integer.parseInt(args[4]));
 			// Initializations
-			FileProcessor fp;
-			Integer line;
-			
-//			Processing input.txt file
-			fp = new FileProcessor(args[0]);
-			Visitor populateMyArray = new PopulateMyArrayVisitor();
-			MyArrayI array1 = new MyArray();
-//			int l = Integer.parseInt(fp.poll());
-			
-			while ((line = Integer.parseInt(fp.poll())) != null) {
-				MyLogger.writeMessage("Reading of input1 file", DebugLevel.DRIVER);
-				array1.addInts(line);
-				array1.accept(populateMyArray);
-			}
-			
-		}catch(Exception e) {
-			
+			PopulateMyArrayVisitor populateMyArray1 = new PopulateMyArrayVisitor(new FileProcessor(args[0]));
+			populateMyArray1.setArr();
+
+			PopulateMyArrayVisitor populateMyArray2 = new PopulateMyArrayVisitor(new FileProcessor(args[1]));
+			populateMyArray2.setArr();
+		} catch (Exception e) {
+			e.printStackTrace();
+
 		}
 
 	}

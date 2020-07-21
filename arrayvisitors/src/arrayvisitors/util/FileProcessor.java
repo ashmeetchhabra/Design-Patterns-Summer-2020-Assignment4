@@ -42,7 +42,7 @@ public class FileProcessor {
 	 * @exception IOException On error encountered when reading from input file.
 	 */
 	public String poll() throws IOException {
-		MyLogger.writeMessage("Reading of file", DebugLevel.FILE_PROCESSOR);
+//		MyLogger.writeMessage("Reading of file", DebugLevel.FILE_PROCESSOR);
 		return reader.readLine();
 	}
 

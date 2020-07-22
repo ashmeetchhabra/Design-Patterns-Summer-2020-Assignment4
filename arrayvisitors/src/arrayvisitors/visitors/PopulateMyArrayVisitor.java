@@ -19,6 +19,9 @@ public class PopulateMyArrayVisitor implements Visitor {
 	List<MyArrayI> arrList = new ArrayList<MyArrayI>();
 	FileProcessor fp;
 
+	/**
+	 * @param fp, Fileprocessor object
+	 */
 	public PopulateMyArrayVisitor(FileProcessor fp) {
 		this.fp = fp;
 	}
@@ -35,20 +38,42 @@ public class PopulateMyArrayVisitor implements Visitor {
 	public void visit(MyArrayListI myarraylist, Results res) {
 
 		arrList = myarraylist.addMyArray(this.myArrayObj);
-//		arrayList.addMyArray(array2);
 	}
 
-	public MyArrayI setArr(MyArrayI myArrayObj1, Results res) throws NumberFormatException, IOException {
+	/**
+	 * This method reads the input file and call accept() on MyArray 
+	 * @param myArrayObj1
+	 * @param res
+	 * @return MyArrayI
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public MyArrayI setArray(MyArrayI myArrayObj1, Results res) throws NumberFormatException, IOException {
+		boolean isInputFileEmpty=true;
+		MyLogger.writeMessage("setArray() method in PopulateMyArrayVisitor", DebugLevel.POPULATEMYARRAYVISITOR);
+
 		String line;
 		while ((line = fp.poll()) != null) {
+			isInputFileEmpty=false;
 			value = Integer.parseInt(line);
 			MyLogger.writeMessage("Reading of input1 file", DebugLevel.NONE);
 			myArrayObj1.accept(this, res);
 		}
+		
+		if(isInputFileEmpty==true)
+			throw new RuntimeException("Empty Input file");
 		return myArrayObj1;
 
 	}
 
+	/**
+	 * This method accepts 2 array objects and call accept() on MyArrayListObj
+	 * @param myArrayListObj1
+	 * @param myArrayObj
+	 * @param res
+	 * @return
+	 * @throws IOException
+	 */
 	public List<MyArrayI> createMyArrayList(MyArrayListI myArrayListObj1, MyArrayI myArrayObj, Results res)
 			throws IOException {
 		this.myArrayObj = myArrayObj;

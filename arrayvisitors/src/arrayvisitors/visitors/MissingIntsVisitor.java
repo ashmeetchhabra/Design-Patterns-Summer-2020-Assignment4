@@ -38,15 +38,19 @@ public class MissingIntsVisitor implements Visitor {
 			if (!existingInts.contains(i))
 				missingInts.add(i);
 		}
-		System.out.print("Existing Ints:");
-		for (Integer i : existingInts) {
-			System.out.print(i+"\n");
-			
-		}
+//		System.out.print("Existing Ints:");
+//		for (Integer i : existingInts) {
+//			System.out.print(i+"\n");
+//			
+//		}
 		
 		System.out.println("Missing Ints:");
+		res.writeToFile("Missing Ints:");
 		for (Integer i : missingInts) {
-			res.writeToFile(i+"\n");
+			if(i<10)
+				res.writeToFile("0"+i+"\n");
+			else
+				res.writeToFile(i+"\n");
 			System.out.print(i+" ");
 			
 		}

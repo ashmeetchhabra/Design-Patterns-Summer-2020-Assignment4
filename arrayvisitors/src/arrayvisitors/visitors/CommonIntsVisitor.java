@@ -31,13 +31,18 @@ public class CommonIntsVisitor implements Visitor {
 		arrayObj2 =list.get(1);
 		
 		System.out.println("Common ints::");
+		res.writeToFile("Common Ints:");
 		for (int i = 0; i < arrayObj1.length(); i++) {
 			for (int j = 0; j < arrayObj2.length(); j++) {
 				if(arrayObj1.getInt(i)==arrayObj2.getInt(j))
 				{
 					if(!commonIntsList.contains(arrayObj1.getInt(i)))
 					{
-						res.writeToFile(arrayObj1.getInt(i)+"\n");
+						if(i<10)
+							res.writeToFile("0"+i+"\n");
+						else
+							res.writeToFile(arrayObj1.getInt(i)+"\n");
+						
 						System.out.print(arrayObj1.getInt(i)+" ");
 						
 						commonIntsList.add(arrayObj1.getInt(i));

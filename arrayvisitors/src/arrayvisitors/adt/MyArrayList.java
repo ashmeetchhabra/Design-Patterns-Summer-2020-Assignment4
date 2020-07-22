@@ -36,7 +36,6 @@ public class MyArrayList implements MyArrayListI {
 	@Override
 	public void displayMyArrayList() {
 		for (MyArrayI myArray : myArrayList) {
-			System.out.println("InArrayList");
 			myArray.displayElements();
 			
 		}

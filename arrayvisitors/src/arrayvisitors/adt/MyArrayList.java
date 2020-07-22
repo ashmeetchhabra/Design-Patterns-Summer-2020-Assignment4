@@ -1,8 +1,10 @@
 package arrayvisitors.adt;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import arrayvisitors.util.Results;
 import arrayvisitors.visitors.Visitor;
 
 public class MyArrayList implements MyArrayListI {
@@ -10,8 +12,8 @@ public class MyArrayList implements MyArrayListI {
 	
 
 	@Override
-	public void accept(Visitor visitor) { 
-		visitor.visit(this);
+	public void accept(Visitor visitor, Results res) throws IOException { 
+		visitor.visit(this,res);
 		
 	}
 

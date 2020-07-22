@@ -1,11 +1,13 @@
 package arrayvisitors.visitors;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import arrayvisitors.adt.MyArray;
 import arrayvisitors.adt.MyArrayI;
 import arrayvisitors.adt.MyArrayListI;
+import arrayvisitors.util.Results;
 
 public class CommonIntsVisitor implements Visitor {
 
@@ -16,7 +18,7 @@ public class CommonIntsVisitor implements Visitor {
 	}
 
 	@Override
-	public void visit(MyArrayListI myarraylist) {
+	public void visit(MyArrayListI myarraylist,Results res) throws IOException {
 		// Logic for getting same values from 2 ArrayObjs in ArrayList
 
 		List<Integer> commonIntsList = new ArrayList<Integer>(); 
@@ -35,6 +37,7 @@ public class CommonIntsVisitor implements Visitor {
 				{
 					if(!commonIntsList.contains(arrayObj1.getInt(i)))
 					{
+						res.writeToFile(arrayObj1.getInt(i)+"\n");
 						System.out.print(arrayObj1.getInt(i)+" ");
 						
 						commonIntsList.add(arrayObj1.getInt(i));

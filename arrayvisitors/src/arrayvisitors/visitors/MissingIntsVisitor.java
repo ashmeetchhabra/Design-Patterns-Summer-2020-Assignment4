@@ -1,10 +1,12 @@
 package arrayvisitors.visitors;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import arrayvisitors.adt.MyArrayI;
 import arrayvisitors.adt.MyArrayListI;
+import arrayvisitors.util.Results;
 
 public class MissingIntsVisitor implements Visitor {
 
@@ -15,7 +17,7 @@ public class MissingIntsVisitor implements Visitor {
 	}
 
 	@Override
-	public void visit(MyArrayListI myarraylist) {
+	public void visit(MyArrayListI myarraylist,Results res) throws IOException {
 		List<MyArrayI> list = new ArrayList<MyArrayI>();
 		System.out.println();
 //		System.out.println("Missing Ints::");
@@ -32,18 +34,19 @@ public class MissingIntsVisitor implements Visitor {
 			}
 		}
 
-		for (int i = 00; i < 99; i++) {
+		for (int i = 00; i <=99; i++) {
 			if (!existingInts.contains(i))
 				missingInts.add(i);
 		}
 		System.out.print("Existing Ints:");
 		for (Integer i : existingInts) {
-			System.out.print(i+" ");
+			System.out.print(i+"\n");
 			
 		}
 		
 		System.out.println("Missing Ints:");
 		for (Integer i : missingInts) {
+			res.writeToFile(i+"\n");
 			System.out.print(i+" ");
 			
 		}

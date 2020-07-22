@@ -1,6 +1,7 @@
 package arrayvisitors.adt;
 
 import arrayvisitors.util.DynamicArray;
+import arrayvisitors.util.Results;
 import arrayvisitors.visitors.Visitor;
 
 public class MyArray implements MyArrayI {
@@ -22,7 +23,7 @@ public class MyArray implements MyArrayI {
 	}
 
 	@Override
-	public void accept(Visitor visitor) {
+	public void accept(Visitor visitor,Results res) {
 		visitor.visit(this);
 
 	}

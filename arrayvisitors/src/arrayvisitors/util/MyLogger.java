@@ -10,8 +10,8 @@ public class MyLogger {
 
 	// FIXME: Add more enum values as needed for the assignment
 	public static enum DebugLevel {
-		CONSTRUCTOR, FILE_PROCESSOR, NONE, ALL, TREEHELPER, STUDENTRECORD, STUDENTRECORDS, DRIVER, LINEHANDLER, ERROR,
-		RESULTS,
+		CONSTRUCTOR, FILE_PROCESSOR, NONE, ALL, POPULATEMYARRAYVISITOR, COMMONINTSVISITOR, MISSINGINTSVISTOR, DRIVER,
+		MYARRAY, ERROR, RESULTS, MYARRAYLIST
 	};
 
 	private static DebugLevel debugLevel;
@@ -19,6 +19,9 @@ public class MyLogger {
 	// FIXME: Add switch cases for all the levels
 	public static void setDebugValue(int levelIn) {
 		switch (levelIn) {
+		case 12:
+			debugLevel = DebugLevel.MYARRAYLIST;
+			break;
 		case 11:
 			debugLevel = DebugLevel.RESULTS;
 			break;
@@ -26,19 +29,19 @@ public class MyLogger {
 			debugLevel = DebugLevel.ERROR;
 			break;
 		case 9:
-			debugLevel = DebugLevel.LINEHANDLER;
+			debugLevel = DebugLevel.POPULATEMYARRAYVISITOR;
 			break;
 		case 8:
 			debugLevel = DebugLevel.DRIVER;
 			break;
 		case 7:
-			debugLevel = DebugLevel.STUDENTRECORDS;
+			debugLevel = DebugLevel.COMMONINTSVISITOR;
 			break;
 		case 6:
-			debugLevel = DebugLevel.STUDENTRECORD;
+			debugLevel = DebugLevel.MISSINGINTSVISTOR;
 			break;
 		case 5:
-			debugLevel = DebugLevel.TREEHELPER;
+			debugLevel = DebugLevel.MYARRAY;
 			break;
 		case 4:
 			debugLevel = DebugLevel.ALL;

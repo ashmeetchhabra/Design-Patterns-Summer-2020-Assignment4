@@ -6,7 +6,9 @@ import java.util.List;
 
 import arrayvisitors.adt.MyArrayI;
 import arrayvisitors.adt.MyArrayListI;
+import arrayvisitors.util.MyLogger;
 import arrayvisitors.util.Results;
+import arrayvisitors.util.MyLogger.DebugLevel;
 
 public class MissingIntsVisitor implements Visitor {
 
@@ -18,6 +20,7 @@ public class MissingIntsVisitor implements Visitor {
 
 	@Override
 	public void visit(MyArrayListI myarraylist,Results res) throws IOException {
+		MyLogger.writeMessage("In visit() of MissingIntsVisitor", DebugLevel.MISSINGINTSVISTOR);
 		List<MyArrayI> list = new ArrayList<MyArrayI>();
 		System.out.println();
 //		System.out.println("Missing Ints::");
@@ -38,14 +41,10 @@ public class MissingIntsVisitor implements Visitor {
 			if (!existingInts.contains(i))
 				missingInts.add(i);
 		}
-//		System.out.print("Existing Ints:");
-//		for (Integer i : existingInts) {
-//			System.out.print(i+"\n");
-//			
-//		}
+
 		
 		System.out.println("Missing Ints:");
-		res.writeToFile("Missing Ints:");
+		res.writeToFile("Missing Ints:"+"\n");
 		for (Integer i : missingInts) {
 			if(i<10)
 				res.writeToFile("0"+i+"\n");

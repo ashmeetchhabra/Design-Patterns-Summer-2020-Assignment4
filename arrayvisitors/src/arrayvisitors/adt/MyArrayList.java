@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import arrayvisitors.util.MyLogger;
 import arrayvisitors.util.Results;
+import arrayvisitors.util.MyLogger.DebugLevel;
 import arrayvisitors.visitors.Visitor;
 
 public class MyArrayList implements MyArrayListI {
@@ -13,6 +15,7 @@ public class MyArrayList implements MyArrayListI {
 
 	@Override
 	public void accept(Visitor visitor, Results res) throws IOException { 
+		MyLogger.writeMessage("n accept method of MyArrayList", DebugLevel.MYARRAYLIST);
 		visitor.visit(this,res);
 		
 	}
@@ -34,7 +37,8 @@ public class MyArrayList implements MyArrayListI {
 	}
 
 	@Override
-	public void displayMyArrayList() {
+	public void displayMyArrayList() throws IOException {
+		MyLogger.writeMessage("Display elements of the MyArrayList", DebugLevel.MYARRAYLIST);
 		for (MyArrayI myArray : myArrayList) {
 			myArray.displayElements();
 			

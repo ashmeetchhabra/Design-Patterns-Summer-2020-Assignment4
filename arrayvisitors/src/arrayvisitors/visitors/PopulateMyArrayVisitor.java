@@ -21,8 +21,10 @@ public class PopulateMyArrayVisitor implements Visitor {
 
 	/**
 	 * @param fp, Fileprocessor object
+	 * @throws IOException 
 	 */
-	public PopulateMyArrayVisitor(FileProcessor fp) {
+	public PopulateMyArrayVisitor(FileProcessor fp) throws IOException {
+		MyLogger.writeMessage("PopulateMyArrayVisitor", DebugLevel.CONSTRUCTOR);
 		this.fp = fp;
 	}
 
@@ -56,7 +58,7 @@ public class PopulateMyArrayVisitor implements Visitor {
 		while ((line = fp.poll()) != null) {
 			isInputFileEmpty=false;
 			value = Integer.parseInt(line);
-			MyLogger.writeMessage("Reading of input1 file", DebugLevel.NONE);
+			MyLogger.writeMessage("Reading of input file", DebugLevel.POPULATEMYARRAYVISITOR);
 			myArrayObj1.accept(this, res);
 		}
 		
@@ -76,6 +78,7 @@ public class PopulateMyArrayVisitor implements Visitor {
 	 */
 	public List<MyArrayI> createMyArrayList(MyArrayListI myArrayListObj1, MyArrayI myArrayObj, Results res)
 			throws IOException {
+		MyLogger.writeMessage("Creating MyArrayLList", DebugLevel.POPULATEMYARRAYVISITOR);
 		this.myArrayObj = myArrayObj;
 
 		myArrayListObj1.accept(this, res);

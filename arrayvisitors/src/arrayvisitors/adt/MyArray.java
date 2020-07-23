@@ -1,7 +1,11 @@
 package arrayvisitors.adt;
 
+import java.io.IOException;
+
 import arrayvisitors.util.DynamicArray;
+import arrayvisitors.util.MyLogger;
 import arrayvisitors.util.Results;
+import arrayvisitors.util.MyLogger.DebugLevel;
 import arrayvisitors.visitors.Visitor;
 
 public class MyArray implements MyArrayI {
@@ -29,7 +33,8 @@ public class MyArray implements MyArrayI {
 	}
 
 	@Override
-	public void displayElements() {
+	public void displayElements() throws IOException {
+		MyLogger.writeMessage("Displaying Elements", DebugLevel.MYARRAY);
 		array.printElements();
 	}
 	
